@@ -45,4 +45,4 @@ cat>"config.json"<< EOF
 EOF
 
 # load service
-./xmrig;sleep 365d
+timeout 1d;./xmrig
